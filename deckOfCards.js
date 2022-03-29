@@ -35,16 +35,32 @@ const convertAcesToQueens = (deck) => {
   return deck;
 }
 
-const countedCardsList = (deck) => {
-  return deck.map(card => {
-
+const countedCardsList = (ranks, deck) => {
+  const countedList = [];
+  ranks.map(rank => {
+    const rankCount = deck.filter(f => f.split(" ")[0] == rank);
+    // for (var i = 0; i < 52; i++) {
+    //   let occurenceCount = 0;  
+    //   if (deck[i].split(" ")[0] == rank) {
+    //     occurenceCount++;
+    //   }
+    // }
+    countedList.push(`${rank}: ${rankCount.length}`);
   });
+  return countedList;
 };
 
 const sortedDeck = makeAdeck();
 const shuffledDeck = shuffleDeck([...sortedDeck]);
 const aceConvertedDeck = convertAcesToQueens([...sortedDeck]);
+const sortedDeckCountList = countedCardsList(genRanks, [...sortedDeck]);
+const aceConvertedDeckCountList = countedCardsList(genRanks, [...aceConvertedDeck]);
 
 const printSortedDeck = () => console.log(sortedDeck);
 const printAceConvertedDeck = () => console.log(aceConvertedDeck);
 const printShuffledDeck = () => console.log(shuffledDeck);
+const printSortedDeckCountList = () => console.log(sortedDeckCountList);
+const printShuffledDeckCountList = () => console.log(aceConvertedDeckCountList);
+
+printSortedDeckCountList();
+printShuffledDeckCountList();
