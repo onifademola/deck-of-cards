@@ -56,5 +56,8 @@ const printShuffledDeck = () => console.log(shuffledDeck);
 const printSortedDeckCountList = () => console.log(sortedDeckCountList);
 const printShuffledDeckCountList = () => console.log(aceConvertedDeckCountList);
 
+printSortedDeck();
+printAceConvertedDeck();
+printShuffledDeck();
 printSortedDeckCountList();
 printShuffledDeckCountList();
